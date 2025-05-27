@@ -1,0 +1,66 @@
+doctype html
+html
+  head
+    title Create New Task
+    style.
+      body {
+        font-family: sans-serif;
+        background: #f8f9fa;
+        margin: 0;
+        padding: 2rem;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      form {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      label {
+        display: block;
+        margin: 1rem 0 0.5rem;
+        font-weight: bold;
+      }
+      input, textarea, select {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        margin-top: 1.5rem;
+        padding: 0.6rem 1.2rem;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+  body
+    .container
+      h1 Create New Task
+      form(action="/tasks" method="POST")
+        label(for="title") Title
+        input(type="text" name="title" id="title" required)
+
+        label(for="description") Description
+        textarea(name="description" id="description" rows="4" required)
+
+        label(for="status") Status
+        select(name="status" id="status" required)
+          option(value="Pending") Pending
+          option(value="In Progress") In Progress
+          option(value="Completed") Completed
+
+      
+      
+
+        button(type="submit") Create Task

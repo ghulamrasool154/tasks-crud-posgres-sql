@@ -1,0 +1,67 @@
+doctype html
+html
+  head
+    title Tasks Page
+    style.
+      body {
+        font-family: sans-serif;
+        background: #f8f9fa;
+        margin: 0;
+        padding: 2rem;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .task-card {
+        background: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      .task-card h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: #333;
+      }
+      .task-card p {
+        margin: 0.3rem 0;
+        color: #555;
+      }
+      .user-info {
+        font-size: 0.9rem;
+        color: #777;
+        margin-top: 0.5rem;
+      }
+      .badge {
+        display: inline-block;
+        padding: 0.2rem 0.5rem;
+        background: #007bff;
+        color: white;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+      }
+
+  body
+    .container
+      h1 Tasks List
+      if data
+        each task in data
+          .task-card
+            h2= task.title
+            p Description: #{task.description}
+            p Status: 
+              span.badge= task.status
+            p Created At: #{new Date(task.createdAt).toLocaleString()}
+            .user-info
+              p Assigned to:  #{task.user.name}
+            //-   p Assigned to: #{task.user.name} (#{task.user.email})
+      else
+        p No tasks found.
+
